@@ -9,13 +9,17 @@ def export_to_json(summary: dict[str, list[ThreadSummary]]) -> str:
         "days": [
             {
                 "date": date,
-                "threads": [
-                    {
-                        "topic": thread.topic,
-                        "messages": thread.messages,
-                        "users": thread.users
-                    } for thread in threads
-                ]
+                "threads": sorted(
+                    [
+                        {
+                            "topic": thread.topic,
+                            "messages": thread.messages,
+                            "users": thread.users
+                        } for thread in threads
+                    ],
+                    key=lambda x: x["messages"],
+                    reverse=True
+                )
             } for date, threads in sorted(summary.items())
         ]
     }, ensure_ascii=False, indent=2)

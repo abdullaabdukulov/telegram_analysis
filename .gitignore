@@ -4,7 +4,7 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
+telegram_analysis.session
 # AWS User-specific
 .idea/**/aws.xml
 
