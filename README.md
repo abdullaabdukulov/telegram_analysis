@@ -1,18 +1,23 @@
 ## 📊 Telegram Guruh Tahlil Loyihasi
 
-Bu loyiha Telegram guruhidagi so‘nggi 7 kunlik xabarlarni tahlil qiladi va eng ko‘p muhokama qilingan mavzularni aniqlaydi. Natijalar JSON formatda qaytariladi.
+Bu loyiha Telegram guruhidagi so‘nggi 7 kunlik xabarlarni asinxron tarzda yuklab, reply chain’larni aniqlaydi va eng ko‘p muhokama qilingan mavzularni AI yordamida avtomatik nomlaydi. Natijalar JSON formatda tartiblangan holda taqdim etiladi.
+
+---
 
 ### 🛠 Texnologiyalar
+
 - Python 3.11+
 - Telethon
 - asyncio
 - pytz
 - aiofiles
-- dotenv
+- python-dotenv
+- KeyBERT (AI asosida topic extraction)
+- sentence-transformers
 
 ---
 
-### 🚀 Ishga tushirish
+### 🚀 O‘rnatish va ishga tushirish
 
 ```bash
 # 1. Reponi klonlash
@@ -38,8 +43,10 @@ API_HASH=your_api_hash
 GROUP_ID=-100xxxxxxxxxx
 TIMEZONE=Asia/Tashkent
 ```
-##### API ID VA HASH NI OLISH HAQIDA QUYIDAGI HAVOLA ORQALI BILISHINGIZ MUMKIN: [bu yerda](https://core.telegram.org/api/obtaining_api_id)
-> ⚠️ `GROUP_ID` ni aniqlash uchun `main.py` ichida `get_dialogs()` bilan guruh nomini va ID’sini ko‘ring.
+
+🔑 **API ID va HASH olish**: [Telegram API rasmiy sahifasi](https://core.telegram.org/api/obtaining_api_id)
+
+> ⚠️ `GROUP_ID` ni aniqlash uchun `main.py` ichida vaqtincha `get_dialogs()` funksiyasini chaqirib, guruh nomi va ID’sini ko‘rishingiz mumkin.
 
 ---
 
@@ -50,6 +57,7 @@ python main.py
 ```
 
 Natija quyidagi formatda chiqadi:
+
 ```json
 {
   "timezone": "Asia/Tashkent",
@@ -57,7 +65,11 @@ Natija quyidagi formatda chiqadi:
     {
       "date": "2025-10-17",
       "threads": [
-        {"topic": "Мавзу номи", "messages": 25, "users": 8}
+        {
+          "topic": "strukturasi toza",
+          "messages": 2,
+          "users": 2
+        }
       ]
     }
   ]
@@ -65,7 +77,6 @@ Natija quyidagi formatda chiqadi:
 ```
 
 ---
-
 ### ✅ Foydali buyruqlar
 
 ```bash
