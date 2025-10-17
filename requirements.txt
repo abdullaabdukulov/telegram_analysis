@@ -1,7 +1,6 @@
-aiofiles==25.1.0
-pyaes==1.6.1
-pyasn1==0.6.1
-python-dotenv==1.1.1
+telethon==1.41.2
 pytz==2025.2
-rsa==4.9.1
-Telethon==1.41.2
+aiofiles==25.1.0
+python-dotenv==1.1.1
+keybert==0.9.0
+sentence-transformers==5.1.1

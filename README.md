@@ -38,7 +38,7 @@ API_HASH=your_api_hash
 GROUP_ID=-100xxxxxxxxxx
 TIMEZONE=Asia/Tashkent
 ```
-
+##### API ID VA HASH NI OLISH HAQIDA QUYIDAGI HAVOLA ORQALI BILISHINGIZ MUMKIN: [bu yerda](https://core.telegram.org/api/obtaining_api_id)
 > ⚠️ `GROUP_ID` ni aniqlash uchun `main.py` ichida `get_dialogs()` bilan guruh nomini va ID’sini ko‘ring.
 
 ---
